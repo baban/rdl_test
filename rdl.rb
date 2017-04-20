@@ -6,16 +6,12 @@ print "Hello,World!\n"
 class Hoge
   type '(Fixnum) -> Fixnum', typecheck: :later
   def hoge(num)
+    var_type :x, 'Fixnum', typecheck: :later
+    x = 3       # okay
+    x = "three" # type error
     num
   end
 end
-
-module HogeHoge
-  def hoge()
-    1
-  end
-end
-type HogeHoge, :hoge, '() -> Fixnum', typecheck: :later
 
 class Mage
   #include HogeHoge
@@ -46,7 +42,7 @@ class Mage
   end
 end
 
-Mage.new.mogu
+Mage.new.mage(10)
 
 class Huga
   [:huga,:hugahuga].each do |name|
