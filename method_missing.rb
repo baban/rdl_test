@@ -1,6 +1,11 @@
 require 'rdl'
 require 'types/core'
 
+# method_missing
+# * superを呼んで継承する/しない
+# * NoMethodErrorがありえる/ありえない
+# respond_to_missing?は使えない。これはインスタンスで動かして見ないとわからないものを対象にしている。
+
 class Foo
   type '() -> String', typecheck: :later
   def foo()
